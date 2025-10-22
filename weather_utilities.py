@@ -10,7 +10,7 @@ def get_place(place):
     print(url)
     response = rs.get(url=url)
 
-    return response.json
+    return response.text
 
 
 def get_weather(lat,lon):
@@ -19,4 +19,4 @@ def get_weather(lat,lon):
 
     response = rs.get(url=url)
 
-    return response.json
+    return response.text

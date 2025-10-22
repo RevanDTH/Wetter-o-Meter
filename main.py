@@ -1,3 +1,4 @@
+import json
 import tkinter as ttk
 from weather_utilities import *
 
@@ -8,9 +9,8 @@ place_var = ttk.StringVar()
 
 def readPlace():
     place=place_var.get()
-    print("Ausgewählter Ort: " + place)
-    place_resp = get_place(place)
-    weather = get_weather(getattr(place_resp, "lat"),getattr(place_resp, "lon")) ## FUNKTIONIERT NICHT, BITTE ÜBERARBEITEN
+    place_resp = json.loads(get_place(place))
+    weather = get_weather(str(place_resp["lat"]),str(place_resp["lon"]))
     place_var.set("")
 
 title_tk = ttk.Label(text="Wetter-o-Meter")
