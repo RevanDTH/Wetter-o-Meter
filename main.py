@@ -11,6 +11,8 @@ def readPlace():
     place=place_var.get()
     place_resp = json.loads(get_place(place))
     weather = get_weather(str(place_resp["lat"]),str(place_resp["lon"]))
+
+    print(weather)
     place_var.set("")
 
 title_tk = ttk.Label(text="Wetter-o-Meter")
